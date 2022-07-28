@@ -7,6 +7,7 @@
   
   ## Deployed Site
   
+  [https://ethancahill.github.io/weather_dash/](https://ethancahill.github.io/weather_dash/)
   
 <img width="1439" alt="Screen Shot 2022-07-27 at 9 50 53 PM" src="https://user-images.githubusercontent.com/99375366/181403280-cbe92c16-7ddf-47e9-93b9-93dbabc8cfe6.png">
 
