@@ -7,9 +7,9 @@
   
   ## Deployed Site
   
-  [https://ethancahill.github.io/weather_dash/](https://ethancahill.github.io/weather_dash/)
+  [https://ethancahill.github.io/weather_dash/](https://ethancahill.github.io/weather_dashboard/)
   
-<img width="1439" alt="Screen Shot 2022-07-27 at 9 50 53 PM" src="https://user-images.githubusercontent.com/99375366/181403280-cbe92c16-7ddf-47e9-93b9-93dbabc8cfe6.png">
+<img width="1371" alt="Screen Shot 2022-07-29 at 2 02 00 PM" src="https://user-images.githubusercontent.com/99375366/181818348-f4fdba52-ba82-4be4-9b7a-f866f9e88fd7.png">
 
 
   ## Table of Contents
