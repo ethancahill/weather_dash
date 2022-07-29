@@ -11,6 +11,7 @@ var todaysUv = document.getElementById('todays-uv')
 var todaysIcon = document.getElementById('todays-icon')
 var fiveDayForecastDiv = document.getElementById('fiveday')
 var todaysWeather = document.getElementById('weather-title')
+var searchHistory = JSON.parse(localStorage.getItem('searchHistory')) || [];
 var currentCityWeather = {}
 var currentCity = ''
 var currentState = ''
@@ -41,6 +42,7 @@ var lng = geoData[0].lon
     currentState = geoData[0].state
     currentDate = new Date().toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"short", day:"numeric"}) 
     displayTodaysForecast()
+    setSearchHistory()
 }
 
 function displayTodaysForecast(){
@@ -93,5 +95,12 @@ function displayFiveDayForecast() {
       `)  
     }
 }
+
+function setSearchHistory(){
+    searchHistory.unshift(currentCity)
+    localStorage.setItem('searchHistory', JSON.stringify(searchHistory))
+}
+
+
 
 searchBtn.addEventListener('click', geoLocate)
