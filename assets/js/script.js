@@ -116,14 +116,21 @@ function setSearchHistory(){
 
 function getSearchHistory(){
     for(var i = 0; i < searchHistory.length; i++){
-        searchHistoryDiv.insertAdjacentHTML('afterend', `
-        
-        <Button id="${searchHistory[i]}" class=" btn btn-info m-1">${searchHistory[i]}</Button>
+        const button = document.createElement('button')
+        button.setAttribute('class', 'btn btn-info m-2')
+        button.textContent= searchHistory[i];
+        searchHistoryDiv.appendChild(button)
+        button.addEventListener('click', async function(){
+            e.preventDefault();
 
-        `)
+            const locationResponse= await fetch('https://api.openweathermap.org/geo/1.0/direct?q=' + searchHistory[i] + '&limit=1&appid=' + key)
+           const formattedResponse = await locationResponse.json()
+           
+           todaysForecast(formattedResponse)
+           fiveDay(formattedResponse)
+        })
     }
 }
 
-
+getSearchHistory()
 searchBtn.addEventListener('click', geoLocate)
-document.getElementById('btn-info').addEventListener('click', geoLocateHistory)
