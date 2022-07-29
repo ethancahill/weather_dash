@@ -29,16 +29,7 @@ async function geoLocate(e) {
    todaysForecast(formattedResponse)
    fiveDay(formattedResponse)
 }
-async function geoLocateHistory(e) {
-    e.preventDefault();
- var searchBtnClicked = e.target.id
 
-    const locationResponse= await fetch('https://api.openweathermap.org/geo/1.0/direct?q=' + searchBtnClicked + '&limit=1&appid=' + key)
-   const formattedResponse = await locationResponse.json()
-   
-   todaysForecast(formattedResponse)
-   fiveDay(formattedResponse)
-}
 
 async function todaysForecast(geoData){
 var lat = geoData[0].lat
@@ -121,9 +112,9 @@ function getSearchHistory(){
         button.textContent= searchHistory[i];
         searchHistoryDiv.appendChild(button)
         button.addEventListener('click', async function(){
-            e.preventDefault();
 
-            const locationResponse= await fetch('https://api.openweathermap.org/geo/1.0/direct?q=' + searchHistory[i] + '&limit=1&appid=' + key)
+
+            const locationResponse= await fetch('https://api.openweathermap.org/geo/1.0/direct?q=' + button.textContent + '&limit=1&appid=' + key)
            const formattedResponse = await locationResponse.json()
            
            todaysForecast(formattedResponse)
