@@ -12,6 +12,7 @@ var todaysIcon = document.getElementById('todays-icon')
 var fiveDayForecastDiv = document.getElementById('fiveday')
 var todaysWeather = document.getElementById('weather-title')
 var searchHistory = JSON.parse(localStorage.getItem('searchHistory')) || [];
+var searchHistoryDiv = document.getElementById('search-history')
 var currentCityWeather = {}
 var currentCity = ''
 var currentState = ''
@@ -23,6 +24,16 @@ async function geoLocate(e) {
     e.preventDefault();
 
     const locationResponse= await fetch('https://api.openweathermap.org/geo/1.0/direct?q=' + userInput.value + '&limit=1&appid=' + key)
+   const formattedResponse = await locationResponse.json()
+   
+   todaysForecast(formattedResponse)
+   fiveDay(formattedResponse)
+}
+async function geoLocateHistory(e) {
+    e.preventDefault();
+ var searchBtnClicked = e.target.id
+
+    const locationResponse= await fetch('https://api.openweathermap.org/geo/1.0/direct?q=' + searchBtnClicked + '&limit=1&appid=' + key)
    const formattedResponse = await locationResponse.json()
    
    todaysForecast(formattedResponse)
@@ -99,8 +110,20 @@ function displayFiveDayForecast() {
 function setSearchHistory(){
     searchHistory.unshift(currentCity)
     localStorage.setItem('searchHistory', JSON.stringify(searchHistory))
+    
+    getSearchHistory()
+}
+
+function getSearchHistory(){
+    for(var i = 0; i < searchHistory.length; i++){
+        searchHistoryDiv.insertAdjacentHTML('afterend', `
+        
+        <Button id="${searchHistory[i]}" class=" btn btn-info m-1">${searchHistory[i]}</Button>
+
+        `)
+    }
 }
 
 
-
 searchBtn.addEventListener('click', geoLocate)
+document.getElementById('btn-info').addEventListener('click', geoLocateHistory)

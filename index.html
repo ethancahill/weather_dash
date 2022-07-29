@@ -8,19 +8,29 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <title>Get The Weather</title>
 </head>
-
-<body>
-<div id='site' class="d-flex flex-column justify-content-center align-items-center">
-  <header>
-    <h1>Get The Weather</h1>
-  </header>
-
-  <main>
+<header>
+  <div class="d-flex flex-row justify-content-center align-items-center">
  
-    <div id="search">
+  <h1>Get The Weather</h1>
+  </div>
+</header>
+<body>
+  
+
+
+ 
+    <div id="search" class="d-flex flex-row justify-content-flex-start align-items-center">
         <Input id="city-search">
           <Button id='search-btn' class="btn-primary">Search</Button>
         </div>
+<div id='site' class="d-flex flex-row justify-content-center align-items-start">
+       
+  <div class="d-flex flex-column">
+    <div id="search-history">
+
+    </div>
+  </div>
+  <div class="m-2">
           <div id='current-weather' class="d-flex flex-column justify-content-center align-items-center">
         <div id="todays-weather">
           <h2 id="'weather-title"></h2>
@@ -33,12 +43,15 @@
             <img id="todays-icon">
           </div>
         </div>
-  
+      </div>
         </div>
+      <div class="m-2">
         <div id="fiveday" class="">
 
         </div>
-  </main>
+      </div>
+   
+
 
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="./assets/js/script.js"></script>
