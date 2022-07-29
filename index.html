@@ -20,10 +20,10 @@
     <div class="search">
       <h2>Search for a City:</h2>
       <form id="search-city">
-        <input name="cityname" id="city-name" type="text" autofocus="true" class="form-input" />
+        <input name="nameofcity" id="city-name" type="text" autofocus="true" class="form-input" />
         <button type="submit" class="btn">Search</button>
         <hr> 
-        <ul id="cities-history">
+        <ul id="history">
         </ul>
       </form>
     </div>
@@ -37,7 +37,7 @@
           <img id="current-image"></img>
         </h2>
         <div>
-          <p> Temp: <span id="current-temp"></span>&deg;F</p>
+          <p> Temp: <span id="current-temp"></span>degrees</p>
           <p> Wind: <span id="current-wind"></span> MPH</p>
           <p> Humidity: <span id="current-humidity"></span> %</p>
          
@@ -46,9 +46,9 @@
       </section>
 
       >
-      <section id="weekly-forecast">
+      <section id="forecast">
         <h3>5-Day Forecast:</h3>
-        <div id="forecast-location">
+        <div id="location">
         </div>
       </section>
     </div>
@@ -58,7 +58,6 @@
   </main>
 
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   <script src="./assets/js/script.js"></script>
 </body>
 </html>
