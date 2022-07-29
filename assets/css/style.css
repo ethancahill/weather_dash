@@ -1,0 +1,13 @@
+#current-weather {
+    position: absolute;
+    top: 5vh;
+    left: 2vw;
+    width: 30%
+
+}
+#fiveday {
+    position: absolute;
+    top: 5vh;
+    right: 3vw;
+    width: 40%
+}

@@ -10,6 +10,7 @@ var todaysHumidity = document.getElementById('todays-humidity')
 var todaysUv = document.getElementById('todays-uv')
 var todaysIcon = document.getElementById('todays-icon')
 var fiveDayForecastDiv = document.getElementById('fiveday')
+var todaysWeather = document.getElementById('weather-title')
 var currentCityWeather = {}
 var currentCity = ''
 var currentState = ''
@@ -43,7 +44,7 @@ var lng = geoData[0].lon
 }
 
 function displayTodaysForecast(){
-    cityName.innerHTML = currentCity+', ' + currentState + ' ' + currentDate
+    cityName.innerHTML = "Today's Weather in: " + currentCity + ', ' + currentState + ' ' + currentDate
     todaysTemp.innerHTML = 'Temperature: ' + currentCityWeather.temp
     todaysWind.innerHTML = 'Wind Speed: ' + currentCityWeather.wind_speed
     todaysHumidity.innerHTML = 'Humidity: ' + currentCityWeather.humidity
@@ -74,11 +75,17 @@ async function fiveDay(geoData){
 }
 
 function displayFiveDayForecast() {
+    const today = new Date ()
+    var date = new Date(today)
+     
 
     for (var i = 0; i < 5; i++) {
+        var theDate = date.setDate(date.getDate() + i)
+       var insertDate = new Date(theDate).toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"short", day:"numeric"})
         var iconImage = 'http://openweathermap.org/img/wn/' + fiveDayForecast[i].weather[0].icon + '@2x.png';
       fiveDayForecastDiv.insertAdjacentHTML('afterend', `
-      <h3>Todays Date</h3>
+      <h2>5 Day Forecast</h2>
+      <h3>${insertDate} </h3>
       <img src='${iconImage}'>
       <h5>Humidity: ${fiveDayForecast[i].humidity}</h5>
       <h5>Wind Speed: ${fiveDayForecast[i].wind_speed}</h5>
